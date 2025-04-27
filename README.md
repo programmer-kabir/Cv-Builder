@@ -58,12 +58,6 @@ npm run dev
 http://localhost:5173
 ```
 
-4. Open your browser and visit:
-
-```bash
-http://localhost:3000
-```
-
 ## Environment Variables
 
 This prjects requires firebase authentication api credentials. You can get them from [firebase console](https://console.firebase.google.com/).
