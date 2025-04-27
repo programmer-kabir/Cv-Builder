@@ -88,7 +88,7 @@ Create a .env.local file in the root directory and provide the following variabl
 
 - **Multiple CV Layout Templates**: Provide more layout options for CV design.
 
-- **Data Sync**: Store existing cv and server them as per need.
+- **Data Sync**: Store existing cv and server them as per need
 - **Customization**: Allow users to select the font style, color scheme, and CV sections.
 
 ## **License**
