@@ -10,6 +10,10 @@ A web-based CV builder that allows users to create and download their CV in PDF 
 
 ![App Screenshot](https://i.ibb.co.com/2Yf9bpzz/cv-builder-mocup.webp)
 
+## Diagram
+
+![App Screenshot](https://i.ibb.co.com/q3wm0PjR/diagram-export-25-04-2025-19-34-40.webp)
+
 ## **Technologies Used**
 
 - **React**: JavaScript library for building user interfaces.
