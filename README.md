@@ -8,7 +8,7 @@ A web-based CV builder that allows users to create and download their CV in PDF 
 
 ## Screenshots
 
-![App Screenshot](https://i.ibb.co.com/qYmR8Hh5/cv-builder-mocup.webp)
+![App Screenshot](https://i.ibb.co.com/2Yf9bpzz/cv-builder-mocup.webp)
 
 ## **Technologies Used**
 
