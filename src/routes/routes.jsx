@@ -6,6 +6,9 @@ import Experience from '../pages/Experience'
 import Projects from '../pages/Projects'
 import Academics from '../pages/Academics'
 import FinalPreview from '../pages/FinalPreview'
+import DashboardLayout from '../layout/DashboardLayout'
+import PrivateRoute from './PrivateRoute'
+import Login from '../components/Login'
 
 export const router = createBrowserRouter([
   {
@@ -14,10 +17,18 @@ export const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    Component: Dashboard,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
+        Component: Dashboard,
+      },
+      {
+        path: 'personal-details',
         Component: PersonalDetails,
       },
       {
@@ -36,6 +47,14 @@ export const router = createBrowserRouter([
   },
   {
     path: 'preview',
-    Component: FinalPreview,
+    element: (
+      <PrivateRoute>
+        <FinalPreview />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: 'login',
+    Component: Login,
   },
 ])

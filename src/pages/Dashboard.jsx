@@ -1,53 +1,75 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from 'antd'
-import { Link, Outlet, useLocation } from 'react-router'
-import DashboardSteps from '../components/DashboardSteps'
-import Container from '../components/Container'
-const steps = [
-  { title: 'Personal Details', path: '/dashboard' },
-  { title: 'Experience', path: '/dashboard/experience' },
-  { title: 'Projects', path: '/dashboard/projects' },
-  { title: 'Academics', path: '/dashboard/academics' },
-  { title: 'Preview', path: '/dashboard/preview' },
-]
-
+import { useCVStore } from '../store/useCVStore'
+import { useNavigate } from 'react-router'
+import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons'
+import { message } from 'antd'
+import CVcard from '../components/ui/CVcard'
 const Dashboard = () => {
-  const [current, setCurrent] = useState(0)
-  const location = useLocation()
+  const [messageApi, contextHolder] = message.useMessage()
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
+
+  const { reset } = useCVStore()
   useEffect(() => {
-    setCurrent(steps.findIndex(s => s.path === location.pathname))
-  }, [location.pathname])
-
+    reset()
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [reset])
+  const updateWarning = () => {
+    messageApi.open({
+      type: 'warning',
+      content: 'Feature Coming Soon!',
+    })
+  }
   return (
-    <Container>
-      <DashboardSteps current={current} steps={steps} />
-      <Outlet />
-
-      <div className='flex justify-between'>
-        <div>
-          {current > 0 && (
-            <Button
-              style={{ margin: '0 8px' }}
-              onClick={() => setCurrent(current - 1)}
+    <div>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6'>
+        <CVcard
+          title={'Create New CV'}
+          description='What are you waiting for? Start building your cv in just 4 super
+              easy steps!'
+          loading={false}
+        >
+          <div className='text-center'>
+            <button
+              onClick={() => navigate('personal-details')}
+              className='rounded-full px-5 py-4 bg-gray-200 hover:bg-gray-300  cursor-pointer'
             >
-              Previous
-            </Button>
-          )}
-        </div>
-        <div>
-          {current < steps.length - 1 && (
-            <Button type='primary' onClick={() => setCurrent(current + 1)}>
-              Next
-            </Button>
-          )}
-          {current === steps.length - 1 && (
-            <Link to='/preview'>
-              <Button type='primary'>Preview</Button>
-            </Link>
-          )}
-        </div>
+              <PlusOutlined />
+            </button>
+          </div>
+        </CVcard>
+        <CVcard
+          loading={loading}
+          title={'Existing CV'}
+          description='Existing Resume Preview, Edit, Delete Feature Coming Soon...'
+        >
+          <div className='flex justify-around'>
+            <button
+              onClick={updateWarning}
+              className='rounded-full px-5 py-4 bg-gray-200 hover:bg-gray-300  cursor-pointer'
+            >
+              <EditOutlined />
+            </button>
+            <button
+              onClick={updateWarning}
+              className='rounded-full px-5 py-4 bg-gray-200 hover:bg-gray-300  cursor-pointer'
+            >
+              <DeleteOutlined />
+            </button>
+          </div>
+        </CVcard>
+        <CVcard loading={true} />
+        <CVcard loading={true} />
+        <CVcard loading={true} />
+        <CVcard loading={true} />
+        <CVcard loading={true} />
+        <CVcard loading={true} />
       </div>
-    </Container>
+      {contextHolder}
+    </div>
   )
 }
+
 export default Dashboard

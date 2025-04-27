@@ -1,1 +1,9 @@
 @import 'tailwindcss';
+a.active {
+  color: rgb(16, 16, 23);
+  font-weight: 500;
+}
+
+@theme {
+  --font-poppins: 'Poppins';
+}
