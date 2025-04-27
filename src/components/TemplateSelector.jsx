@@ -1,14 +1,13 @@
-// components/TemplateSelector.jsx
 import { useCVStore } from '../store/useCVStore'
 import { cn } from '../utils'
 
 const templates = [
-  { id: 'template1', label: 'Modern', img: '/templates/template1.webp' },
-  { id: 'template2', label: 'Mono', img: '/templates/template2.webp' },
+  { id: 'template1', label: 'Modern', img: '/templates/template1.png' },
+  { id: 'template2', label: 'Mono', img: '/templates/template2.png' },
   { id: 'template3', label: 'Sidebar', img: '/templates/template3.png' },
 ]
 
-export default function TemplateSelector() {
+const TemplateSelector = () => {
   const { template, setTemplate } = useCVStore()
 
   return (
@@ -31,3 +30,4 @@ export default function TemplateSelector() {
     </div>
   )
 }
+export default TemplateSelector

@@ -27,16 +27,22 @@ const TemplateThree = ({ data, printRef }) => {
         </h1>
         <p className='text-sm'>{personalDetails?.email}</p>
         <p className='text-sm leading-0'>{personalDetails?.phone}</p>
-
         <div className='mt-8'>
           <h2 className='text-lg'>
-            <strong>Academics</strong>
+            <strong>Overview</strong>
           </h2>
 
-          <p>{academics?.education}</p>
+          <p>{personalDetails?.overview}</p>
+        </div>
+        <div className='mt-8'>
+          <h2 className='text-lg'>
+            <strong>Skills</strong>
+          </h2>
+
+          <p>{personalDetails?.skills}</p>
         </div>
 
-        <div>
+        <div className='mt-8'>
           <h2 className='text-lg'>
             <strong>Extracurricular Activities:</strong>
           </h2>
@@ -78,6 +84,13 @@ const TemplateThree = ({ data, printRef }) => {
               <p>Description: {proj?.description}</p>
             </div>
           ))}
+        </section>
+        <section className='space-y-8'>
+          <h2 className='text-lg'>
+            <strong>Academics</strong>
+          </h2>
+
+          <p>{academics?.education}</p>
         </section>
       </div>
     </div>

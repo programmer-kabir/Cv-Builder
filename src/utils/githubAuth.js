@@ -19,6 +19,7 @@ export const signInWithGitHub = async () => {
       token
     )
   } catch (err) {
+    alert(`Something Went Wrong! ${err?.message}`)
     console.error('GitHub sign-in error:', err)
   }
 }

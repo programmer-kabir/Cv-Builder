@@ -8,12 +8,12 @@ import {
 import { useAuthStore } from '../store/useAuthStore'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB9_fZKeYOkECEEUon7Zk1Lj4KkE9ZI2hM',
-  authDomain: 'cv-builder-b3011.firebaseapp.com',
-  projectId: 'cv-builder-b3011',
-  storageBucket: 'cv-builder-b3011.firebasestorage.app',
-  messagingSenderId: '239364303260',
-  appId: '1:239364303260:web:f2cf02c22e63878da64059',
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 }
 
 // Initialize Firebase

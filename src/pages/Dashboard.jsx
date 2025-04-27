@@ -29,7 +29,7 @@ const Dashboard = () => {
           title={'Create New CV'}
           description='What are you waiting for? Start building your cv in just 4 super
               easy steps!'
-          loading={false}
+          loading={loading}
         >
           <div className='text-center'>
             <button

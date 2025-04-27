@@ -25,19 +25,21 @@ const DashboardLayout = () => {
         <Navbar />
       </div>
       {location.pathname !== '/dashboard' && (
-        <div className='max-w-3/5 mx-auto py-6'>
+        <div className='w-full pt-12'>
           <DashboardSteps current={current} steps={steps} />
         </div>
       )}
-      <div className='mt-4 md:mt-6 lg:mt-8 w-full flex justify-center  min-h-[calc(100vh-300px)]'>
+      <div className='w-full'>
         <Outlet />
       </div>
       {location.pathname !== '/dashboard' && (
-        <StepsNavigation
-          current={current}
-          setCurrent={setCurrent}
-          steps={steps}
-        />
+        <div className='pb-12'>
+          <StepsNavigation
+            current={current}
+            setCurrent={setCurrent}
+            steps={steps}
+          />
+        </div>
       )}
     </Container>
   )

@@ -4,10 +4,12 @@ import html2pdf from 'html2pdf.js'
 import { saveAs } from 'file-saver'
 import { Document, Packer, Paragraph, TextRun } from 'docx'
 
+// Tailwind Classes Merging Utility Function
 export function cn(...inputs) {
   return twMerge(clsx(inputs))
 }
 
+// PDF Download Function
 export const downloadPDF = printRef => {
   const element = printRef.current
   console.log(element)
@@ -25,7 +27,9 @@ export const downloadPDF = printRef => {
   }
 }
 
+// Doc Download Function
 export const downloadDOC = async cvData => {
+  console.log(cvData)
   const { personalDetails, experience, projects, academics } = cvData
 
   const doc = new Document({
@@ -36,41 +40,80 @@ export const downloadDOC = async cvData => {
           new Paragraph({
             children: [
               new TextRun({
-                text: personalDetails?.name,
+                text: personalDetails.name || '',
                 bold: true,
-                size: 28,
+                size: 32,
+                color: '0000FF',
               }),
             ],
           }),
-          new Paragraph(personalDetails?.email),
-          new Paragraph(personalDetails?.phone),
+          new Paragraph({
+            children: [
+              new TextRun(
+                `${personalDetails.email} | ${personalDetails.phone}`
+              ),
+            ],
+          }),
+          new Paragraph({
+            border: {
+              top: { color: 'auto', space: 1, size: 6, style: 'single' },
+            },
+          }),
           new Paragraph(' '),
-          ...experience.map(
-            exp =>
+
+          new Paragraph({ text: 'Overview', heading: 'Heading1' }),
+          new Paragraph(personalDetails.overview || ''),
+          new Paragraph(' '),
+
+          new Paragraph({ text: 'Skills', heading: 'Heading1' }),
+          new Paragraph(personalDetails.skills || ''),
+          new Paragraph(' '),
+
+          new Paragraph({ text: 'Experience', heading: 'Heading1' }),
+          ...experience
+            .map(exp => [
               new Paragraph({
                 children: [
                   new TextRun({
-                    text: `${exp?.position} at ${exp?.company} (${exp?.duration})`,
+                    text: `${exp.position} at ${exp.company}`,
                     bold: true,
                   }),
                 ],
-              })
-          ),
-          new Paragraph(' '),
-          ...projects.map(
-            proj =>
+              }),
+              new Paragraph({
+                text: exp.duration,
+              }),
+              new Paragraph(' '),
+            ])
+            .flat(),
+
+          new Paragraph({ text: 'Projects', heading: 'Heading1' }),
+          ...projects
+            .map(proj => [
               new Paragraph({
                 children: [
-                  new TextRun({ text: proj?.title, bold: true }),
-                  new TextRun({ text: ` - ${proj?.description}` }),
+                  new TextRun({
+                    text: proj.title,
+                    bold: true,
+                  }),
                 ],
-              })
-          ),
+              }),
+              new Paragraph({
+                text: proj.description,
+              }),
+              new Paragraph(' '),
+            ])
+            .flat(),
+
+          new Paragraph({ text: 'Education', heading: 'Heading1' }),
+          new Paragraph(academics.education || ''),
           new Paragraph(' '),
-          new Paragraph('Education:'),
-          new Paragraph(academics?.education || ''),
-          new Paragraph('Extracurriculars:'),
-          new Paragraph(academics?.extracurriculars || ''),
+
+          new Paragraph({
+            text: 'Extracurricular Activities',
+            heading: 'Heading1',
+          }),
+          new Paragraph(academics?.['extracurricular-activity'] || ''),
         ],
       },
     ],
@@ -78,8 +121,8 @@ export const downloadDOC = async cvData => {
 
   try {
     const blob = await Packer.toBlob(doc)
-    saveAs(blob, 'cv.docx')
+    saveAs(blob, `${personalDetails.name || 'cv'}.docx`)
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }

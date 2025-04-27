@@ -8,7 +8,8 @@ import Academics from '../pages/Academics'
 import FinalPreview from '../pages/FinalPreview'
 import DashboardLayout from '../layout/DashboardLayout'
 import PrivateRoute from './PrivateRoute'
-import Login from '../components/Login'
+import Authentication from '../pages/Authentication'
+import Error404 from '../pages/Error404'
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +55,11 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: 'login',
-    Component: Login,
+    path: 'authentication',
+    Component: Authentication,
+  },
+  {
+    path: '*',
+    element: <Error404 />,
   },
 ])

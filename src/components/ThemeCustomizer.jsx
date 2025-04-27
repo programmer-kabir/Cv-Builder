@@ -1,4 +1,3 @@
-// components/ThemeCustomizer.jsx
 import { useCVStore } from '../store/useCVStore'
 import { Input, Select } from 'antd'
 
@@ -10,7 +9,7 @@ const fonts = [
   { label: 'Lora', value: 'lora' },
 ]
 
-export default function ThemeCustomizer() {
+const ThemeCustomizer = () => {
   const { colorTheme, font, setColorTheme, setFont } = useCVStore()
 
   return (
@@ -50,3 +49,4 @@ export default function ThemeCustomizer() {
     </div>
   )
 }
+export default ThemeCustomizer

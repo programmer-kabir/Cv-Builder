@@ -1,7 +1,6 @@
 import { Card } from 'antd'
 
 const CVcard = ({ loading, title, description, children }) => {
-  console.log(loading)
   return (
     <Card loading={loading} style={{ minWidth: 300 }}>
       <Card.Meta

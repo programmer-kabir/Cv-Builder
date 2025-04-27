@@ -1,36 +1,25 @@
-// components/Login.js
 import { signInWithGoogle } from '../utils/googleAuth'
 import { signInWithGitHub } from '../utils/githubAuth'
 import { useAuthStore } from '../store/useAuthStore'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import authenticationLottie from '../assets/lottie/authentication.lottie'
-import Container from './ui/Container'
+import Container from '../components/ui/Container'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
-import {
-  GithubOutlined,
-  GoogleCircleFilled,
-  GoogleOutlined,
-} from '@ant-design/icons'
-import Navbar from './Navbar'
-export default function Login() {
+import { GithubOutlined, GoogleOutlined } from '@ant-design/icons'
+import Navbar from '../components/Navbar'
+
+const Authentication = () => {
   const navigate = useNavigate()
   const { user, isAuthenticated } = useAuthStore()
+
   useEffect(() => {
     if (isAuthenticated()) {
       navigate('/dashboard')
     }
   }, [isAuthenticated, navigate, user])
-  console.log(user)
+
   return (
-    // <div className='p-4'>
-    //   <button
-    //     onClick={signInWithGoogle}
-    //     className='bg-blue-500 text-white px-4 py-2 rounded'
-    //   >
-    //     Sign in with Google
-    //   </button>
-    // </div>
     <Container>
       <div className='py-6'>
         <Navbar />
@@ -84,3 +73,5 @@ export default function Login() {
     </Container>
   )
 }
+
+export default Authentication

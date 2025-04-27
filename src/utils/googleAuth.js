@@ -1,4 +1,3 @@
-// utils/googleAuth.js
 import { signInWithPopup, signOut } from 'firebase/auth'
 import { auth, googleProvider } from '../firebase/firebase.init'
 import { useAuthStore } from '../store/useAuthStore'
@@ -19,6 +18,7 @@ export const signInWithGoogle = async () => {
       token
     )
   } catch (err) {
+    alert(`Something Went Wrong! ${err?.message}`)
     console.error('Google sign-in error:', err)
   }
 }
@@ -28,6 +28,7 @@ export const signOutFromGoogle = async () => {
     await signOut(auth)
     useAuthStore.getState().logout()
   } catch (err) {
+    alert('GitHub sign-in error:', err)
     console.error('Sign-out error:', err)
   }
 }

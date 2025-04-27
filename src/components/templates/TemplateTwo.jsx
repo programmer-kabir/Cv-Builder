@@ -1,7 +1,6 @@
 import { useCVStore } from '../../store/useCVStore'
 
-// components/templates/TemplateTwo.jsx
-export default function TemplateTwo({ data, printRef }) {
+const TemplateTwo = ({ data, printRef }) => {
   const { personalDetails, experience, projects, academics } = data
   const { colorTheme, font } = useCVStore()
 
@@ -16,7 +15,7 @@ export default function TemplateTwo({ data, printRef }) {
   return (
     <div
       ref={printRef}
-      style={{ ...style, backgroundColor: '#f3f4f6', minHeight: '100vh' }}
+      style={{ ...style, backgroundColor: '#f3f4f6', minHeight: '995px' }}
       className='  p-4 rounded space-y-2 font-mono'
     >
       <div className='text-center '>
@@ -29,7 +28,14 @@ export default function TemplateTwo({ data, printRef }) {
       </div>
 
       <hr />
-
+      <div>
+        <h2 className='text-xl underline'>Overview</h2>
+        <p>{personalDetails?.overview}</p>
+      </div>
+      <div>
+        <h2 className='text-xl underline'>Skills</h2>
+        <p>{personalDetails?.skills}</p>
+      </div>
       <div>
         <h2 className='text-xl underline'>Experience</h2>
         {experience?.map((exp, i) => (
@@ -60,3 +66,4 @@ export default function TemplateTwo({ data, printRef }) {
     </div>
   )
 }
+export default TemplateTwo

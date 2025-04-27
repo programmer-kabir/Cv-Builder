@@ -36,12 +36,14 @@ const Navbar = () => {
       <Breadcrumb items={items} />
       {user && (
         <div className='flex justify-around items-center gap-2'>
-          <h1 className='pt-2 text-gray-500'>Welcome, {user.name}</h1>
+          <h1 className='pt-2 text-gray-500 hidden md:flex'>
+            Welcome, {user.name}
+          </h1>
           <img
             src={user.photo}
             referrerPolicy='no-referrer'
             alt='avatar'
-            className='w-8 rounded-full'
+            className='w-8 rounded-full hidden md:flex'
           />
           <Button onClick={signOutFromGoogle} danger>
             Logout <LogoutOutlined />

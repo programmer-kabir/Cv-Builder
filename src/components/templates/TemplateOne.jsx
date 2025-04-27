@@ -1,7 +1,5 @@
 import { useCVStore } from '../../store/useCVStore'
-
-// components/templates/TemplateOne.jsx
-export default function TemplateOne({ data, printRef }) {
+const TemplateOne = ({ data, printRef }) => {
   const { personalDetails, experience, projects, academics } = data
   const { colorTheme, font } = useCVStore()
 
@@ -14,7 +12,11 @@ export default function TemplateOne({ data, printRef }) {
     color: colorTheme.accent,
   }
   return (
-    <div ref={printRef} style={style} className='space-y-4'>
+    <div
+      ref={printRef}
+      style={{ ...style, minHeight: '995px' }}
+      className='space-y-4'
+    >
       <h1 className='text-3xl font-bold text-center' style={accent}>
         {personalDetails?.name}
       </h1>
@@ -22,6 +24,14 @@ export default function TemplateOne({ data, printRef }) {
         {personalDetails?.email} | {personalDetails?.phone}
       </p>
       <hr />
+      <section>
+        <h2 className='text-lg font-semibold'>Overview</h2>
+        <p>{personalDetails?.overview}</p>
+      </section>
+      <section>
+        <h2 className='text-lg font-semibold'>Skills</h2>
+        <p>{personalDetails?.skills}</p>
+      </section>
       <section>
         <h2 className='text-lg font-semibold'>Experience</h2>
         {experience?.map((exp, i) => (
@@ -52,3 +62,5 @@ export default function TemplateOne({ data, printRef }) {
     </div>
   )
 }
+
+export default TemplateOne
