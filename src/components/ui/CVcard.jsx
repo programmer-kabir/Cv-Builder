@@ -2,10 +2,10 @@ import { Card } from 'antd'
 
 const CVcard = ({ loading, title, description, children }) => {
   return (
-    <Card loading={loading} style={{ minWidth: 300 }}>
+    <Card loading={loading}  className='w-full' >
       <Card.Meta
         title={title}
-        className='text-center'
+        className='text-center '
         description={
           <div>
             <p>{description}</p>

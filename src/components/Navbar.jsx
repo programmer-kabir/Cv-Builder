@@ -36,7 +36,7 @@ const Navbar = () => {
       <Breadcrumb items={items} />
       {user && (
         <div className='flex justify-around items-center gap-2'>
-          <h1 className='pt-2 text-gray-500 hidden md:flex'>
+          <h1 className='pt-2 text-gray-500 hidden md:flex font-semibold'>
             Welcome, {user.name}
           </h1>
           <img

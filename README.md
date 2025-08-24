@@ -4,7 +4,7 @@ A web-based CV builder that allows users to create and download their CV in PDF 
 
 ## Live Demo
 
-- [CV Builder](https://cv-builder-b3011.web.app/)
+- [CV Builder](https://cv-builder122.web.app/)
 
 ## Screenshots
 

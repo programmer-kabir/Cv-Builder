@@ -2,7 +2,7 @@ import { useCVStore } from "../../store/useCVStore";
 const TemplateFour = ({ data, printRef }) => {
   const { personalDetails, experience, projects, academics } = data;
   const { colorTheme, font } = useCVStore();
-  // console.log(personalDetails);
+  console.log(projects);
   const style = {
     fontFamily: font,
     color: colorTheme.primary,
@@ -61,8 +61,23 @@ const TemplateFour = ({ data, printRef }) => {
       <section>
         <h2 className="text-lg font-semibold">Projects</h2>
         {projects?.map((proj, i) => (
-          <p key={i}>
-            <strong>{proj?.title}:</strong> {proj?.description}
+          <p key={i} className="space-x-1">
+            <strong>{proj?.title} </strong>
+            <a
+              href={proj?.live}
+              className="text-[#2377ff] font-semibold underline"
+            >
+              Demo
+            </a>{" "}
+            ||
+            <a
+              href={proj?.github}
+              className="text-[#2377ff] font-semibold underline pl-2"
+            >
+              Code Link
+            </a>
+            <br />
+            <p className="pt-2 px-2.5">{proj?.description}</p>
           </p>
         ))}
       </section>
