@@ -41,7 +41,7 @@ const Projects = () => {
           <Form.List name='projects'>
             {(fields, { add, remove }) => (
               <>
-                {fields.map(({ key, name, ...restField }) => (
+                {/* {fields.map(({ key, name, ...restField }) => (
                   <div
                     key={key}
                     className='flex mb-4 w-full gap-2'
@@ -65,7 +65,56 @@ const Projects = () => {
                     </Form.Item>
                     <MinusCircleOutlined onClick={() => remove(name)} />
                   </div>
-                ))}
+                ))} */}
+                {fields.map(({ key, name, ...restField }) => (
+  <div
+    key={key}
+    className="mb-6 p-4 border rounded-lg flex flex-col gap-2 "
+  >
+    <div className="flex gap-2">
+      <Form.Item
+        {...restField}
+        name={[name, 'title']}
+        label="Project Title"
+        className="flex-1"
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        {...restField}
+        name={[name, 'description']}
+        label="Description"
+        className="flex-1"
+      >
+        <Input.TextArea rows={1} />
+      </Form.Item>
+      <MinusCircleOutlined
+        onClick={() => remove(name)}
+        className="text-red-500 mt-8 cursor-pointer"
+      />
+    </div>
+
+    <div className="flex gap-2">
+      <Form.Item
+        {...restField}
+        name={[name, 'github']}
+        label="GitHub Link"
+        className="flex-1"
+      >
+        <Input placeholder="https://github.com/username/project" />
+      </Form.Item>
+      <Form.Item
+        {...restField}
+        name={[name, 'live']}
+        label="Live Link"
+        className="flex-1"
+      >
+        <Input placeholder="https://your-live-site.com" />
+      </Form.Item>
+    </div>
+  </div>
+))}
+
                 <Form.Item>
                   <Button
                     type='dashed'

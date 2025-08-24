@@ -18,10 +18,12 @@ import {
   RightSquareOutlined,
   SaveOutlined,
 } from '@ant-design/icons'
+import TemplateFour from '../components/templates/TemplateFour.jsx'
 const templates = {
   template1: TemplateOne,
   template2: TemplateTwo,
   template3: TemplateThree,
+  template4: TemplateFour,
 }
 
 const FinalPreview = () => {

@@ -3,6 +3,7 @@ import { cn } from '../utils'
 
 const templates = [
   { id: 'template1', label: 'Modern', img: '/templates/template1.png' },
+  { id: 'template4', label: 'Modern (Sleek)', img: '/templates/template3.png' },
   { id: 'template2', label: 'Mono', img: '/templates/template2.png' },
   { id: 'template3', label: 'Sidebar', img: '/templates/template3.png' },
 ]

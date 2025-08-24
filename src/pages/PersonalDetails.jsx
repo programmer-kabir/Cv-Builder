@@ -30,6 +30,9 @@ const PersonalDetails = () => {
           <Form.Item name='email' label='Email' rules={[{ required: true }]}>
             <Input />
           </Form.Item>
+          <Form.Item name='role' label='Role' rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
           <Form.Item name='phone' label='Phone Number'>
             <Input />
           </Form.Item>
@@ -41,6 +44,9 @@ const PersonalDetails = () => {
             <Input.TextArea rows={2} />
           </Form.Item>
           <Form.Item name='skills' label='Skills' rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name='address' label='address' rules={[{ required: true }]}>
             <Input />
           </Form.Item>
         </Form>

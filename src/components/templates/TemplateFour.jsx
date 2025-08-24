@@ -1,8 +1,8 @@
 import { useCVStore } from "../../store/useCVStore";
-const TemplateOne = ({ data, printRef }) => {
+const TemplateFour = ({ data, printRef }) => {
   const { personalDetails, experience, projects, academics } = data;
   const { colorTheme, font } = useCVStore();
-  console.log(personalDetails);
+  // console.log(personalDetails);
   const style = {
     fontFamily: font,
     color: colorTheme.primary,
@@ -11,27 +11,40 @@ const TemplateOne = ({ data, printRef }) => {
   const accent = {
     color: colorTheme.accent,
   };
+  // console.log(personalDetails);
   return (
     <div
       ref={printRef}
       style={{ ...style, minHeight: "995px" }}
-      className="space-y-4"
+      className="space-y-4 p-0"
     >
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-center" style={accent}>
-          {personalDetails?.name}
-        </h1>
+      <section className="flex justify-between items-start gap-4">
+        {/* Left side: Name and Role */}
+        <div className="flex flex-col justify-start relative">
+          <p className="text-3xl font-bold" style={accent}>
+            {personalDetails?.name}
+          </p>
+          <p className="text-base font-semibold  absolute -bottom-4">
+            {/* You can uncomment this to use dynamic role */}
+            {/* {personalDetails?.developerRole} */}
+            {personalDetails?.role}
+          </p>
+        </div>
 
-        <p className="text-center  font-semibold">{personalDetails?.role}</p>
-        <p className="text-center">
-          {personalDetails?.email} | {personalDetails?.phone}
-        </p>
-      </div>
+        {/* Right side: Contact Info */}
+        <div className="text-right ">
+          <h1 className="font-medium">{personalDetails?.address}</h1>
+          <h1>Email: {personalDetails?.email}</h1>
+          <h1>Phone: {personalDetails?.phone}</h1>
+        </div>
+      </section>
+
       <hr />
       <section>
         <h2 className="text-lg font-semibold">Overview</h2>
         <p>{personalDetails?.overview}</p>
       </section>
+
       <section>
         <h2 className="text-lg font-semibold">Skills</h2>
         <p>{personalDetails?.skills}</p>
@@ -67,4 +80,4 @@ const TemplateOne = ({ data, printRef }) => {
   );
 };
 
-export default TemplateOne;
+export default TemplateFour;
