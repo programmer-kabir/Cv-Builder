@@ -15,8 +15,8 @@ const TemplateFour = ({ data, printRef }) => {
   return (
     <div
       ref={printRef}
-      style={{ ...style, minHeight: "995px" }}
-      className="space-y-4 p-0"
+      style={{ ...style, minHeight: "995px", mainHeight:"1124px" }}
+      className="space-y-4 p-0 "
     >
       <section className="flex justify-between items-start gap-4">
         {/* Left side: Name and Role */}
@@ -42,7 +42,9 @@ const TemplateFour = ({ data, printRef }) => {
       <hr />
       <section>
         <h2 className="text-lg font-semibold">Overview</h2>
-        <p>{personalDetails?.overview}</p>
+        <p className="break-words whitespace-pre-line">
+          {personalDetails?.overview}
+        </p>
       </section>
 
       <section>

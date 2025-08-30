@@ -51,7 +51,7 @@ const FinalPreview = () => {
         <Navbar />
       </div>
       <div className='flex flex-col md:flex-row justify-between gap-8 py-6 px-2'>
-        <div className='space-y-6 flex-1 order-2 md:order-1'>
+        <div className='space-y-6 flex-1 order-2 md:order-1 w-[550px]'>
           <h2 className='text-xl font-semibold'>CV Preview</h2>
           <div className='bg-white p-6 shadow-lg rounded'>
             <SelectedTemplate printRef={printRef} data={cvData} />
