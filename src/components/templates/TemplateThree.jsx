@@ -32,7 +32,7 @@ const TemplateThree = ({ data, printRef }) => {
             <strong>Overview</strong>
           </h2>
 
-          <p>{personalDetails?.overview}</p>
+          <p className='break-words whitespace-pre-line'>{personalDetails?.overview}</p>
         </div>
         <div className='mt-8'>
           <h2 className='text-lg'>

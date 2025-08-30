@@ -15,7 +15,7 @@ const TemplateFour = ({ data, printRef }) => {
   return (
     <div
       ref={printRef}
-      style={{ ...style, minHeight: "995px", mainHeight:"1124px" }}
+      style={{ ...style, minHeight: "995px"}}
       className="space-y-4 p-0 "
     >
       <section className="flex justify-between items-start gap-4">

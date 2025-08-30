@@ -15,7 +15,7 @@ const TemplateOne = ({ data, printRef }) => {
     <div
       ref={printRef}
       style={{ ...style, minHeight: "995px" }}
-      className="space-y-4"
+      className="space-y-4 p-0"
     >
       <div className="space-y-2">
         <h1 className="text-3xl font-bold text-center" style={accent}>
@@ -30,7 +30,7 @@ const TemplateOne = ({ data, printRef }) => {
       <hr />
       <section>
         <h2 className="text-lg font-semibold">Overview</h2>
-        <p>{personalDetails?.overview}</p>
+        <p className="break-words whitespace-pre-line">{personalDetails?.overview}</p>
       </section>
       <section>
         <h2 className="text-lg font-semibold">Skills</h2>

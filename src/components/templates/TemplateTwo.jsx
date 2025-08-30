@@ -30,7 +30,7 @@ const TemplateTwo = ({ data, printRef }) => {
       <hr />
       <div>
         <h2 className='text-xl underline'>Overview</h2>
-        <p>{personalDetails?.overview}</p>
+        <p className='break-words whitespace-pre-line'>{personalDetails?.overview}</p>
       </div>
       <div>
         <h2 className='text-xl underline'>Skills</h2>
